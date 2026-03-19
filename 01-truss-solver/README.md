@@ -86,6 +86,31 @@ Once the values are set, simply press **Run** in MATLAB. The script will:
 2.  Print all **Internal Member Forces** (Tension/Compression).
 3.  Calculate all **Reaction Forces** at the supports.
 ---
+## 📊 Generated Results & Outputs
+
+When the solver is executed, it generates a comprehensive technical package consisting of visual plots and detailed command-line data.
+
+### 1. Graphical Visualizations
+The script produces two distinct MATLAB figures for structural verification:
+* **Truss Network Map (Figure 1):** A geometric plot displaying the assembly of the truss, with every node (N) and member (M) automatically indexed for easy cross-referencing with the results table.
+* **Force Vector Plot (Figure 2):** A load-distribution map that renders external forces as red vectors. The arrows are scaled using a `quiver` logic to represent relative magnitudes and directions.
+
+### 2. Symbolic Equilibrium Report
+To ensure transparency, the solver prints the raw physics it has derived to the Command Window:
+* **Support Reaction Vectors:** Displays the solved values for $R_x, R_y,$ and $M$ at each specific support node.
+* **Nodal Equations:** Lists the unique equilibrium equations generated for every joint (e.g., `Equation 10: F2 + (5*F10)/13 + Ry5 == 0`). This allows for manual auditing of the solver's logic.
+
+### 3. Solved Member Forces Table
+The final output is a clean, categorized list of internal forces:
+* **Magnitude:** Calculated to two decimal places.
+* **Force Nature:** The solver automatically identifies the state of each member:
+    * **Positive (+):** Tensile Force (Tension)
+    * **Negative (-):** Compressive Force (Compression)
+* **Zero-Force Identification:** Clearly identifies members with `0.00` magnitude, essential for structural weight optimization and redundancy checks.
+
+### 4. Support Reaction Matrix
+A final $[N \times 3]$ matrix is generated showing the $(R_x, R_y, M)$ values for every node, providing a quick summary for checking global equilibrium ($\sum F_{external} = \sum R_{reactions}$).
+---
 **Author:** Thanasis Charalambous  
 **Role:** Mechanical Engineer  
 **Tools:** MATLAB, Statics, Structural Mechanics
