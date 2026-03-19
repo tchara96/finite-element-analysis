@@ -50,7 +50,7 @@ The solver follows a rigorous engineering workflow for every joint:
 3. **Equation Generation:** Builds the system of equations: 
    $$\sum F_x = 0 \quad \text{and} \quad \sum F_y = 0$$
 4. **Symbolic Resolution:** Solves the global matrix to output forces, where **(+) denotes Tension** and **(-) denotes Compression**.
-
+---
 ## 💻 How to Use
 ## 🛠️ How to Set Up Your Problem
 
