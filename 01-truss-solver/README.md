@@ -1,20 +1,3 @@
-
-## ✅ Validation & Benchmarking
-To ensure 100% algorithmic reliability, this solver was benchmarked against analytical solutions from **"Vector Mechanics for Engineers: Statics and Dynamics" (9th Edition)** by Beer, Johnston, Mazurek, Cornwell, and Eisenberg.
-
-The code successfully solved and verified the following problems:
-* **Problem 6.4:** Verified basic nodal equilibrium and internal force identification.
-* **Problem 6.11:** Validated support reactions and symmetry logic.
-* **Problem 6.13:** Confirmed accuracy for complex, multi-node truss systems with varied loading.
-
-> **Note:** The solver identifies the nature of the force automatically: **Positive (+)** values indicate **Tension**, while **Negative (-)** values indicate **Compression**.
-
-
-
-
-
-
-
 # 🏗️ Automated 2D Truss Solver (Method of Nodes)
 
 ## Project Overview
