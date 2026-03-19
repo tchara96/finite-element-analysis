@@ -18,7 +18,7 @@ The following figures are generated directly by the script to provide visual ver
 
 ### 1. Truss Configuration & Numbering
 Used to verify the geometric input and the connectivity of the triangular network.
-![Truss Geometry](./01-truss-solver/Figure 1.png)
+![Truss Geometry](./Figure %1.png)
 
 ### 2. Force Vector Analysis
 Displays the application points, directions, and magnitudes of all external loads acting on the system.
