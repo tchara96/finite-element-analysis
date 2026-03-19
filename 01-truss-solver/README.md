@@ -29,7 +29,8 @@ To ensure algorithmic reliability, this solver was benchmarked against analytica
 * **Problem 6.16:** Validated support reactions and nodal equilibrium under combined loading.
 * **Technical Documentation:** Detailed manual calculations and theory are available in the included [Technical Report](./STATICS%20-%20TRUSS%20STRUCTURE.pdf).
 
-## 💻 How to Use## 🛠️ How to Set Up Your Problem
+## 💻 How to Use
+## 🛠️ How to Set Up Your Problem
 
 To solve a new truss structure, you only need to modify **Parts 1, 2, and 3A** of the `truss_2D_analysis_FINAL.m` script. Follow these steps:
 
