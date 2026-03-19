@@ -1,3 +1,20 @@
+
+## ✅ Validation & Benchmarking
+To ensure 100% algorithmic reliability, this solver was benchmarked against analytical solutions from **"Vector Mechanics for Engineers: Statics and Dynamics" (9th Edition)** by Beer, Johnston, Mazurek, Cornwell, and Eisenberg.
+
+The code successfully solved and verified the following problems:
+* **Problem 6.4:** Verified basic nodal equilibrium and internal force identification.
+* **Problem 6.11:** Validated support reactions and symmetry logic.
+* **Problem 6.13:** Confirmed accuracy for complex, multi-node truss systems with varied loading.
+
+> **Note:** The solver identifies the nature of the force automatically: **Positive (+)** values indicate **Tension**, while **Negative (-)** values indicate **Compression**.
+
+
+
+
+
+
+
 # 🏗️ Automated 2D Truss Solver (Method of Nodes)
 
 ## Project Overview
@@ -5,29 +22,51 @@ This project is a computational engine developed in **MATLAB** to automate the s
 
 It serves as a functional bridge between theoretical statics and the matrix-based logic used in modern **Finite Element Analysis (FEA)** software.
 
+
 ## 🚀 Key Features
-* **Symbolic Solver Engine:** Utilizes the MATLAB Symbolic Math Toolbox to handle unknown forces as variables, allowing for exact analytical solutions.
-* **Automated Plotting:** Generates high-fidelity visuals to verify input and results:
-    * **Geometry & Loading:** Visualizes the truss layout, node numbering, and applied external force vectors.
-    * **Force Analysis:** Displays the solved internal forces, automatically distinguishing between **Tension (+)** and **Compression (-)**.
-* **Support Versatility:** Logic built to handle various boundary conditions, including Hinges, Rollers, and specialized collars on frictionless rods.
+* **Symbolic Solver Engine:** Utilizes the MATLAB Symbolic Math Toolbox to handle unknown forces as variables. This allows the script to generate and display the actual equilibrium equations before solving them.
+* **Automated Connectivity Logic:** The script automatically identifies joint-to-member relationships, calculating directional cosines (unit vectors) for any arbitrary geometry.
+* **Dual-Figure Visualization:** * **Figure 1:** Maps the truss network with indexed nodes (N) and members (M).
+    * **Figure 2:** Renders external load vectors with magnitude labels for visual verification.
+* **Support Versatility:** Pre-defined boundary conditions for Rollers (Ground/Wall), Hinges, Pins, and specialized Collars.
 
 ## 📊 Visual Outputs
 The following figures are generated directly by the script to provide visual verification of the structural integrity and force distribution:
 
-### 1. Truss Configuration & External Loads
-This figure allows for immediate verification of the input coordinates, member connectivity, and the direction/magnitude of applied loads.
+### 1. Truss Configuration & Numbering
+Used to verify the geometric input and the connectivity of the triangular network.
 ![Truss Geometry](./Figure%201.png)
 
-### 2. Solved Force Distribution
-The final analysis results showing the magnitude and nature (T/C) of the force for every member in the assembly.
+### 2. Force Vector Analysis
+Displays the application points, directions, and magnitudes of all external loads acting on the system.
 ![Analysis Results](./Figure%202.png)
 
-## ✅ Validation & Benchmarking
-To ensure algorithmic reliability, this solver was benchmarked against analytical solutions from **"Vector Mechanics for Engineers: Statics"** (Beer & Johnston):
-* **Problem 6.13:** Verified complex internal force distribution in a multi-node truss.
-* **Problem 6.16:** Validated support reactions and nodal equilibrium under combined loading.
-* **Technical Documentation:** Detailed manual calculations and theory are available in the included [Technical Report](./STATICS%20-%20TRUSS%20STRUCTURE.pdf).
+
+
+## ✅ Technical Validation & Benchmarking
+To ensure the solver's reliability for structural engineering applications, the engine was benchmarked against manual analytical solutions from **"Vector Mechanics for Engineers: Statics and Dynamics" (9th Ed.)** by Beer & Johnston.
+
+### Benchmark 1: Problem 6.4 (Basic Equilibrium)
+* **Goal:** Verify reaction forces and internal member tension/compression.
+* **Result:** Successfully identified Zero-Force members and matched manual calculations for support reactions ($R_{y4} = 4.2$, $R_{y6} = 4.2$).
+
+### Benchmark 2: Problem 6.11 (Symmetry & Load Distribution)
+* **Goal:** Test the solver's ability to handle symmetrical loading across 13 members.
+* **Result:** Code accurately distributed the 2400 total load, resulting in symmetrical support reactions ($R_{y1} = 1200$, $R_{y8} = 1200$) and correct internal force magnitudes (e.g., $F_{12} = -1500$).
+
+### Benchmark 3: Problem 6.13 (Complex Geometry)
+* **Goal:** Validate the symbolic solver against non-standard angles and multiple horizontal/vertical reaction components.
+* **Result:** The engine successfully derived complex equilibrium equations (e.g., using $\sqrt{41}$ and $\sqrt{61}$ coefficients) to find precise reactions ($R_{x1} = -60, R_{x5} = 60$).
+
+---
+
+## 🔍 The "Method of Nodes" Logic
+The solver follows a rigorous engineering workflow for every joint:
+1. **Isolation:** Isolates each node and identifies all connected members.
+2. **Decomposition:** Calculates directional cosines ($\cos \theta, \sin \theta$) based on the nodal coordinates.
+3. **Equation Generation:** Builds the system of equations: 
+   $$\sum F_x = 0 \quad \text{and} \quad \sum F_y = 0$$
+4. **Symbolic Resolution:** Solves the global matrix to output forces, where **(+) denotes Tension** and **(-) denotes Compression**.
 
 ## 💻 How to Use
 ## 🛠️ How to Set Up Your Problem
