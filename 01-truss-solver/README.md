@@ -51,7 +51,7 @@ The solver follows a rigorous engineering workflow for every joint:
    $$\sum F_x = 0 \quad \text{and} \quad \sum F_y = 0$$
 4. **Symbolic Resolution:** Solves the global matrix to output forces, where **(+) denotes Tension** and **(-) denotes Compression**.
 ---
-## 💻 How to Use
+## 💻 Instructions for User
 ## 🛠️ How to Set Up Your Problem
 
 To solve a new truss structure, you only need to modify **Parts 1, 2, and 3A** of the `truss_2D_analysis_FINAL.m` script. Follow these steps:
