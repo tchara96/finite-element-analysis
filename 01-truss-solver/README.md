@@ -34,18 +34,18 @@ To ensure algorithmic reliability, this solver was benchmarked against analytica
 
 To solve a new truss structure, you only need to modify **Parts 1, 2, and 3A** of the `truss_2D_analysis_FINAL.m` script. Follow these steps:
 
-### 1. Define Geometry (PART 1)
+### a. Define Geometry (PART 1)
 * **Nodes:** Enter the $(x, y)$ coordinates for every joint in the `nodes` matrix. 
     * *Example:* `nodes = [0 0; 2 0;]` defines Node 1 at the origin and Node 2 at $x=2$.
 * **Members:** Define which nodes are connected. 
     * *Example:* `[1 2]` creates a beam between Node 1 and Node 2.
 
-### 2. Apply External Loads (PART 2)
+### b. Apply External Loads (PART 2)
 * Input the forces acting on each node in the `loads` matrix format: `[Horizontal Force (Rx), Vertical Force (Ry), Moment (M)]`.
 * **Downward forces** must be entered as **negative** values.
 * If a force is applied at an angle, calculate its $x$ and $y$ components first.
 
-### 3. Define Supports (PART 3A)
+### c. Define Supports (PART 3A)
 The script uses a numbering system to identify support types. Assign the corresponding number to the node in the `support_node` array:
 
 | Value | Support Type | Restricted Movement |
@@ -58,7 +58,7 @@ The script uses a numbering system to identify support types. Assign the corresp
 
 > **Note:** For the best results, ensure your primary supports are located at $x=0$ to align with the solver's coordinate logic.
 
-### 4. Run the Solver
+### d. Run the Solver
 Once the values are set, simply press **Run** in MATLAB. The script will:
 1.  Plot the structure for visual verification.
 2.  Print all **Internal Member Forces** (Tension/Compression).
